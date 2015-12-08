@@ -1,3 +1,3 @@
-<!-- # w3d5: [Active Record Lite!][description] -->
+# ActiveArchive
 
-<!-- [description]: https://github.com/appacademy/sql-curriculum/blob/master/projects/w3d5-build-your-own-ar.md -->
+ActiveArchive is an object-relational-mapping library inspired by ActiveRecord. The library is designed to create objects and
