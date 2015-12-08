@@ -100,7 +100,21 @@ class SQLObject
   end
 
   def update
-    # ...
+    column_names = self.class.columns.drop(1)
+    new_values = attribute_values.drop(1)
+
+    set_line = column_names.map do |col|
+      "#{col} = ?"
+    end.join(", ")
+
+    DBConnection.execute(<<-SQL, *new_values, id)
+      UPDATE
+        #{self.class.table_name}
+      SET
+        #{set_line}
+      WHERE
+        #{self.class.table_name}.id = ?
+    SQL
   end
 
   def save
